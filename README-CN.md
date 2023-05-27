@@ -490,6 +490,14 @@ python3(python) scripts/nike_sync.py eyJhbGciThiMTItNGIw******
 
 ```
 https://www.strava.com/oauth/authorize?client_id=${your_id}&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read_all,profile:read_all,activity:read_all,profile:write,activity:write
+
+
+https://www.strava.com/oauth/authorize?client_id=107699&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read_all,profile:read_all,activity:read_all,profile:write,activity:write
+
+
+http://localhost/exchange_token?state=&code=4d52180ceaa489c7a2d2cea9eac76883ffc21b31&scope=read,activity:write,activity:read_all,profile:write,profile:read_all,read_all
+
+
 ```
 
 ![get_all_permissions](https://raw.githubusercontent.com/shaonianche/gallery/master/running_page/get_all_permissions.png)
@@ -505,6 +513,8 @@ http://localhost/exchange_token?state=&code=1dab37edd9970971fb502c9efdd087f4f347
 
 ```
 1dab37edd9970971fb502c9efdd087f4f3471e6
+
+4d52180ceaa489c7a2d2cea9eac76883ffc21b31
 ```
 
 ![get_code](https://raw.githubusercontent.com/shaonianche/gallery/master/running_page/get_code.png) 6. 使用 Client_id、Client_secret、Code 请求 refresh_token
@@ -518,6 +528,11 @@ curl -X POST https://www.strava.com/oauth/token \
 -F grant_type=authorization_code
 ```
 
+
+curl -X POST https://www.strava.com/oauth/token -F client_id=107699 -F client_secret=c9a713373915526540b787ea00487a0261cad739 -F code=4d52180ceaa489c7a2d2cea9eac76883ffc21b31 -F grant_type=authorization_code
+
+
+Refresh token d5d82a267df838c9170250ef1b98f50bff0d7a2e
 示例：
 
 ```
@@ -536,7 +551,7 @@ curl -X POST https://www.strava.com/oauth/token \
 > 第一次同步 Strava 数据时需要更改在 strava_sync.py 中的第 12 行代码 False 改为 True，运行完成后，再改为 False。
 
 ```python
-python3(python) scripts/strava_sync.py ${client_id} ${client_secret} ${refresh_token}
+python3 scripts/strava_sync.py 107699 c9a713373915526540b787ea00487a0261cad739 d5d82a267df838c9170250ef1b98f50bff0d7a2e
 ```
 
 其他资料参见
