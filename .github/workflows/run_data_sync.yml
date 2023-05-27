@@ -77,7 +77,7 @@ jobs:
       - name: Run sync Strava script
         if: env.RUN_TYPE == 'strava'
         run: |
-          python scripts/strava_sync.py 107699 c9a713373915526540b787ea00487a0261cad739 d5d82a267df838c9170250ef1b98f50bff0d7a2e
+          python scripts/strava_sync.py ${{ secrets.STRAVA_CLIENT_ID }} ${{ secrets.STRAVA_CLIENT_SECRET }} ${{ secrets.STRAVA_CLIENT_REFRESH_TOKEN }}
 
       - name: Run sync Codoon script
         if: env.RUN_TYPE == 'codoon'
