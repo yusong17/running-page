@@ -21,7 +21,7 @@ on:
 
 env:
   # please change to your own config.
-  RUN_TYPE: only_gpx # support strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava/strava_to_garmin/strava_to_garmin_cn/garmin_to_strava/garmin_to_strava_cn/codoon, Please change the 'pass' it to your own
+  RUN_TYPE: strava # support strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava/strava_to_garmin/strava_to_garmin_cn/garmin_to_strava/garmin_to_strava_cn/codoon, Please change the 'pass' it to your own
   ATHLETE: Yu Song
   TITLE: Run Yu Run
   MIN_GRID_DISTANCE: 10 # change min distance here
@@ -77,7 +77,7 @@ jobs:
       - name: Run sync Strava script
         if: env.RUN_TYPE == 'strava'
         run: |
-          python scripts/strava_sync.py ${{ secrets.STRAVA_CLIENT_ID }} ${{ secrets.STRAVA_CLIENT_SECRET }} ${{ secrets.STRAVA_CLIENT_REFRESH_TOKEN }}
+          python scripts/strava_sync.py 107699 c9a713373915526540b787ea00487a0261cad739 d5d82a267df838c9170250ef1b98f50bff0d7a2e
 
       - name: Run sync Codoon script
         if: env.RUN_TYPE == 'codoon'
