@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: 'Run Yu Run',
     siteUrl: 'https://yusong17.github.io/running-page',
-    logo: 'https://s2.loli.net/2023/06/03/dYOGWVrgaEJpNH6.jpg',
+    logo: 'https://s2.loli.net/2023/06/03/w5kdK1Of2yBq4pD.jpg',
     description: 'Yu is running',
     navLinks: [
       {
